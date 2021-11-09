@@ -23,5 +23,10 @@ RestService restService=new RestService();
    Assert.assertEquals(restService.response.getBody().path("isValid"),Boolean.valueOf(response));
   }
 
-
+  @Given("I provide a null value as age")
+  public void iProvideANullValueAsAge() {
+    JSONObject postAge= utils.getPayload();
+    postAge.replace("age",null);
+    restService.executePostRequest(postAge);
+  }
 }

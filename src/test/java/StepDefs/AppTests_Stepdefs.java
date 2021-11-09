@@ -7,6 +7,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import java.io.IOException;
+import java.net.MalformedURLException;
 
 public class AppTests_Stepdefs {
 
@@ -40,5 +41,15 @@ public class AppTests_Stepdefs {
     }
   }
 
+  @Then("I get an error")
+  public void iGetAnError() {
+    mainPage.verificationMessage("HTTP Exception 500 Internal Server Error");
+  }
+
+  @Given("I launch the app")
+  public void iLaunchTheApp() throws MalformedURLException {
+    utils.accessCMD("cmd.exe /c start cmd.exe /k \"appium -a 127.0.0.1 -p 4723\"");
+    appPage.launchApp();
+  }
 
 }

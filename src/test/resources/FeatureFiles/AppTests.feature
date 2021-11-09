@@ -8,3 +8,10 @@ Scenario Outline: test age limits
     | Age | status |
     | 20 | You can drink |
     | 10 | You can't drink yet |
+
+  Scenario: negative input
+    Given I launch the app and provide "-9"
+    And click verify button
+    Then I get an error
+
+

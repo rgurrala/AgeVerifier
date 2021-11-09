@@ -6,7 +6,7 @@ import org.json.simple.JSONObject;
 
 public class RestService {
   public Response response;
-  String baseUrl = "https://age-verifier.herokuapp.com/age/verifier";
+  String baseUrl = "http://age-verifier.herokuapp.com/age/verifier";
   public Response executePostRequest(JSONObject payload){
     response = given().body(payload).
         contentType("application/json").

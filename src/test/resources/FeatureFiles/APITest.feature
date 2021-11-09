@@ -7,3 +7,11 @@ Feature: API test
       | age |response|
       | 10 |false|
       | 20 |true|
+
+    Scenario: post null value
+      Given I provide a null value as age
+      Then I should get a "false"
+
+
+
+
